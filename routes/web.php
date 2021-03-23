@@ -11,25 +11,32 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('first');
+// });
+// Route::get('/home', function () {
+//     return view('welcome');
+// });
+// // Route::get('/','BookController@index')->middleware('auth');
 
-Route::get('shops/index', 'ShopController@index');
+// // Route::get('shops/index', 'ShopController@index');
 
-Route::group(['prefix' => 'contact','middleware' => 'auth'],function(){
-    Route::get('index', 'ContactFormController@index')->name('contact.index');
-    Route::get('create', 'ContactFormController@create')->name('contact.create');
-    Route::post('store', 'ContactFormController@store')->name('contact.store');
-    Route::get('show/{id}', 'ContactFormController@show')->name('contact.show');
-    Route::get('edit/{id}', 'ContactFormController@edit')->name('contact.edit');
-    Route::post('update/{id}', 'ContactFormController@update')->name('contact.update');
-    Route::post('destroy/{id}', 'ContactFormController@destroy')->name('contact.destroy');
-});
+// Route::group(['prefix' => 'contact','middleware' => 'auth'],function(){
+//     Route::get('index', 'ContactFormController@index')->name('contact.index');
+//     Route::get('create', 'ContactFormController@create')->name('contact.create');
+//     Route::post('store', 'ContactFormController@store')->name('contact.store');
+//     Route::get('show/{id}', 'ContactFormController@show')->name('contact.show');
+//     Route::get('edit/{id}', 'ContactFormController@edit')->name('contact.edit');
+//     Route::post('update/{id}', 'ContactFormController@update')->name('contact.update');
+//     Route::post('destroy/{id}', 'ContactFormController@destroy')->name('contact.destroy');
+// });
 
-// Route::resource('contacts','ContactFormController')->only([
-//     'index','show'
-// ]);
-Auth::routes();
+// // Route::resource('contacts','ContactFormController')->only([
+// //     'index','show'
+// // ]);
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index');
+Route::get('/{any}', function () {
+    return view('first');
+})->where('any','.*');
